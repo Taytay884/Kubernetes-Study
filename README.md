@@ -1,8 +1,3 @@
----
-
-
----
-
 <h1 id="kubernetes-study---itay">Kubernetes study - Itay</h1>
 <p><em>23.06.2020</em></p>
 <p>I’m covering the <a href="http://Kubernetes.io">Kubernetes.io</a> tutorial, I will write useful stuff here.<br>
