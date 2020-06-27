@@ -20,12 +20,14 @@ kubectl proxy
 <h2 id="deployments">Deployments</h2>
 <pre><code>kubectl get deployments
 kubectl describe deployment // To get the label of a deployment
+kubectl describe deployments/kubernetes-bootcamp
 kubectl create deployment kubernetes-bootcamp --image=gcr.io/google-samples/kubernetes-bootcamp:v1
 kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 8080 // Creates a service
 </code></pre>
 <h2 id="pods">Pods</h2>
 <pre><code>kubectl get pods
 kubectl get pods -l run=kubernetes-bootcamp // Get pods by label.
+kubectl get pods -o wide
 kubectl describe pods
 kubectl describe pods $POD_NAME
 kubectl logs $POD_NAME
@@ -39,6 +41,12 @@ kubectl exec -ti $POD_NAME curl localhost:8080 // When the service is deleted th
 // Save $POD_NAME on a variable.
 export POD_NAME=$(kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}') echo Name of the Pod: $POD_NAME
 </code></pre>
+
+<h1 id="ReplicaSet">ReplicaSet</h1>
+<pre><code>kubectl get rs
+kubectl scale deployments/kubernetes-bootcamp --replicas=4
+</code></pre>
+
 <h2 id="services">Services</h2>
 <pre><code>kubectl get services
 kubectl get services -l run=kubernetes-bootcamp // Get services by label.
